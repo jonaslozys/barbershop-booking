@@ -11,7 +11,7 @@
         echo "error";
     };
 
-    if(isset($_POST["submit"])){
+    if(isset($_POST["submit"]) && !empty($_POST["date"])){
         $_SESSION["date"] = $_POST["date"];
         header("Location: " .ROOT_URL ."views/select_time.php");
     }

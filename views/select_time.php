@@ -4,10 +4,13 @@
 
     session_start();
 
+    if(isset($_POST["time"])){
+        $_SESSION["time"] = $_POST["time"];
+        header("Location: ".ROOT_URL ."views/final_booking_form.php");
+    }
+
     $barber_id = $_SESSION["barber_id"];
     $date = $_SESSION["date"];
-
-
 
     require("../API/get_available_times.php");
 
@@ -24,8 +27,12 @@
     <body>
         <h2>Select one of available times</h2>
 
-        <?php foreach($available_times as $available_time): ;?>
-            <p><?php echo $available_time; ?> </p>
-        <?php endforeach; ?>
+        <form action="" method="post">
+            <?php foreach($available_times as $available_time): ;?>
+                <button name="time" value="<?php echo $available_time; ?>"><?php echo $available_time; ?></button>
+                <br/>
+            <?php endforeach; ?>
+        </form>
+
     </body>
 </html>
