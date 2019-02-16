@@ -1,5 +1,21 @@
 <?php
     require("../config/config.php");
+
+    session_start();
+    
+
+    if(isset($_GET["barber_id"])){
+        $barber_id = $_GET["barber_id"];
+        $_SESSION["barber_id"] = $barber_id;
+    } else {
+        echo "error";
+    };
+
+    if(isset($_POST["submit"])){
+        $_SESSION["date"] = $_POST["date"];
+        header("Location: " .ROOT_URL ."views/select_time.php");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +29,11 @@
     <body>
         <div id="my-calendar"></div>
 
-        <form method = "GET" action="<?php echo ROOT_URL; ?>views/select_time.php">
+        <form method = "post" action="">
             <label>Date selected:</label>
             <input id="selected-date" name="date"><br>
             <button name="submit">OK</button>
         </form>
-
 
         <script type="text/javascript">
             // Get the element

@@ -15,10 +15,11 @@
             <?php echo $barber["name"]; ?>
             <h3>Bio/about</h3>
             <?php echo $barber["bio"]; ?>
-            <button><a href="<?php echo ROOT_URL; ?>views/select_date.php">Book</a></button>
+            <button><a href="<?php echo ROOT_URL; ?>views/select_date.php?barber_id=<?php echo $barber["id"];?>">Book</a></button>
             <br/>
             <br/>
             <br/>
         <?php endforeach; ?>
+
     </body>
 </html>
