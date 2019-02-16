@@ -44,7 +44,7 @@
             var inputA = document.getElementById("selected-date");
 
             myCalendar.onDateClick(function(event, date){
-                inputA.value = ((date.getMonth()+1) + "/" + date.getDate() + '/' +  date.getFullYear());
+                inputA.value = (date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + date.getDate());
             });
         </script>   
     </body>
