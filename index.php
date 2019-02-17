@@ -11,6 +11,6 @@
 
     <body>
         <button><a href="<?php echo ROOT_URL; ?>views/select_barber.php">Book an appointment</a></button>
-        <button><a href="">Staff login</a></button>
+        <button><a href="<?php echo ROOT_URL; ?>views/staff_login.php">Staff login</a></button>
     </body>
 </html>
