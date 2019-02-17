@@ -6,7 +6,10 @@
 
     if(isset($_POST["submit"])){
         if(!empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["phone"])){
-            registerAppointment($_SESSION["barber_id"], $_SESSION["date"], $_SESSION["time"], $_POST["name"]);
+            registerAppointment(
+                $_SESSION["barber_id"], $_SESSION["date"], $_SESSION["time"], $_POST["name"],
+                $_POST["email"], $_POST["phone"]
+            );
         }
     }
 ?>
