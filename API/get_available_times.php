@@ -1,7 +1,7 @@
 <?php
     function getBookedTimes($barber_id, $date, $conn) {
         // get all records of bookings for a selected barber at a selected date
-        $query = "SELECT * FROM bookings WHERE staff_id = $barber_id AND DATE(date) = '" .$date ."'";
+        $query = "SELECT * FROM bookings WHERE barber_id = $barber_id AND DATE(date) = '" .$date ."'";
 
         $results = mysqli_query($conn, $query);
 

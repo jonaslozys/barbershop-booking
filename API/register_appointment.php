@@ -3,7 +3,7 @@
     function registerAppointment($barber_id, $date, $time, $name, $email, $phone) {
         $date = $date ." " .$time;
 
-        $query = "INSERT INTO bookings (staff_id, customer_name, date) 
+        $query = "INSERT INTO bookings (barber_id, customer_name, date) 
                 VALUES ('" .$barber_id ."','" .$name ."','" .$date ."')";
 
         global $conn;
