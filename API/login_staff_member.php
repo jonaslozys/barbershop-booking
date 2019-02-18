@@ -24,7 +24,7 @@
                         $_SESSION["id"] = $id;
                         $_SESSION["username"] = $username;
 
-                        header("Location: " .ROOT_URL ."views/appointments_schedule.php?id=" .$id);
+                        header("Location: " .ROOT_URL ."views/appointments_schedule.php?staff_id=" .$id ."&date=" .date("Y-n-j"));
                     } else {
                         $password_error = "Incorrect password";
                     }
