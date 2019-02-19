@@ -34,8 +34,6 @@
             }
         } else {
             echo "Something went wrong, try again";
-        }
-        
-    }
-        
+        } 
+    }   
 ?>

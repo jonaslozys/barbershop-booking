@@ -12,7 +12,9 @@
     if(isset($_GET["staff_id"]) && isset($_GET["date"])){
         $bookings = getBookings($_GET["staff_id"], $_GET["date"]);
     }
-
+    if(isset($_POST["logout"])){
+        echo "logout";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +23,8 @@
         <title>Schedule</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     </head>
-    
     <body>
+        <?php require("../components/logged_in_header.php"); ?>
         <div class = "container">
             <h2>Schedule for <b>Schedule for <?php echo date("Y M d", strtotime($_GET["date"])); ?></b></h2>
             <?php foreach($bookings as $booking): ;?>
