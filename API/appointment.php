@@ -1,24 +1,32 @@
 <?php 
-    
-
-            function getAppointmentById($appointment_id){
+        function getAppointmentById($appointment_id){
 
             global $conn;
 
-            $query = "SELECT * FROM bookings WHERE appointment_id = '$appointment_id'";
+            $query = "SELECT bookings.appointment_id, bookings.date, customers.customer_name, customers.email, customers.phone, customers.visits FROM
+                        bookings INNER JOIN customers ON customers.customer_name = bookings.customer_name
+                        WHERE bookings.appointment_id = '$appointment_id'";
 
             $result = mysqli_query($conn, $query);
-            
+
             $appointment = mysqli_fetch_assoc($result);
 
-            $customer_name = $appointment["customer_name"];
+            return $appointment;
+        }
 
-            $query = "SELECT * FROM customers WHERE customer_name = '$customer_name'";
+        function deleteAppointment($appointment_id){
+            
+            global $conn;
 
-            $result = mysqli_query($conn, $query);
+            $query = "DELETE FROM bookings WHERE appointment_id='$appointment_id'";
 
-            $client = mysqli_fetch_assoc($result);
-
-            return $appointment = array_merge($appointment, $client);
+                        
+            if(mysqli_query($conn, $query)){
+                echo "appointment deleted";
+                header("Location: " .ROOT_URL ."views/appointments_schedule.php");
+            } else {
+                echo mysqli_error($conn);
+                echo "error, try again";
+            }
         }
 ?>

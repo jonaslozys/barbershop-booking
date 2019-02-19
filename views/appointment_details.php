@@ -12,7 +12,7 @@
     if($appointmentDetails = getAppointmentById($_GET["id"])){
 
     } else {
-        echo "error";
+        echo "error, no such appointment found";
     }
 ?>
 
@@ -23,6 +23,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     </head>
 
+    <?php require("../components/logged_in_header.php"); ?>
+
     <body>
         <div class = "container">
             <a class = "btn btn-info" href="javascript:history.go(-1)">Back</a>
@@ -30,9 +32,10 @@
             <h3>Customer name: <b><?php echo $appointmentDetails["customer_name"]; ?></b></h3>
             <h3>Customer's email: <b><?php echo $appointmentDetails["email"]; ?></b></h3>
             <h3>Customer's phone number: <b><?php echo $appointmentDetails["phone"]; ?></b></h3>
-            <a class = "btn btn-danger" href="">Cancel appointment</a>
+            <h3>V</h3>
+            <a class = "btn btn-danger" href="<?php echo ROOT_URL ."views/cancel_appointment.php?id=" .$appointmentDetails["appointment_id"];?>">Cancel appointment</a>
+            <h3>Number of visits:<?php echo "" ;?></h3>
+
         </div>
-
-
     </body>
 </html>

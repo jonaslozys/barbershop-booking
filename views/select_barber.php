@@ -1,5 +1,8 @@
 <?php
-    require("../API/get_barbers.php");
+    require("../API/barbers.php");
+
+    $barbers = new Barber;
+    $barbers = $barbers -> getAllBarbers();
 ?>
 
 <!DOCTYPE html>
