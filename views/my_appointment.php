@@ -1,5 +1,14 @@
 <?php 
     require("../config/config.php");
+    require("../config/db_config.php");
+    require("../API/appointment.php");
+
+    if(isset($_GET["id"]) && isset($_GET["action"])){
+        if($_GET["action"] === "delete"){
+            deleteAppointment($_GET["id"]);
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +47,6 @@
 
             </div>
             
-            <a class = "btn btn-danger" href="">Cancel appointment</a>
             
     </body>
 </html>

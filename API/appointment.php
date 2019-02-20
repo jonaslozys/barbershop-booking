@@ -22,8 +22,7 @@
 
                         
             if(mysqli_query($conn, $query)){
-                echo "appointment deleted";
-                header("Location: " .ROOT_URL ."views/appointments_schedule.php");
+                echo "<div><b>appointment canceled</b></div>";
             } else {
                 echo mysqli_error($conn);
                 echo "error, try again";
