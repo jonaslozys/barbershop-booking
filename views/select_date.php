@@ -23,17 +23,25 @@
     <head>
         <script src="https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.min.js" integrity="sha384-JqNLUzAxpw7zEu6rKS/TNPZ5ayCWPUY601zaig7cUEVfL+pBoLcDiIEkWHjl07Ot" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.min.css" integrity="sha384-+OB2CadpqXIt7AheMhNaVI99xKH8j8b+bHC8P5m2tkpFopGBklD3IRvYjPekeWIJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <title>Best barbershop in town</title>
      
     </head>
     <body>
-        <div id="my-calendar"></div>
+        
 
-        <form method = "post" action="">
-            <label>Date selected:</label>
-            <input id="selected-date" name="date"><br>
-            <button name="submit">OK</button>
-        </form>
+        <div class="container">
+            <h1>Select a date</h1>
+
+            <div id="my-calendar"></div>
+
+            <form method = "post" action="">
+                <label>Date selected:</label>
+                <input class="form-control" id="selected-date" name="date"><br>
+                <button class="btn btn-success" name="submit">OK</button>
+            </form>
+        </div>
+
 
         <script type="text/javascript">
             // Get the element

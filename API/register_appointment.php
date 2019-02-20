@@ -1,17 +1,24 @@
 <?php
 
     function registerAppointment($barber_id, $date, $time, $name, $email, $phone) {
+        global $conn;
+
         $date = $date ." " .$time;
 
         $query = "INSERT INTO bookings (barber_id, customer_name, date) 
                 VALUES ('" .$barber_id ."','" .$name ."','" .$date ."')";
 
-        global $conn;
         
         mysqli_query($conn, $query);
 
+        if(!mysqli_error($conn)){
+            $appointment_id = mysqli_insert_id($conn);
+        }
+
         $query = "INSERT INTO customers (customer_name, email, phone)
                 VALUES ('" .$name ."','" .$email ."','" .$phone ."')";
+
+        
 
         // If thats a new client booking an appointment, his info will be inserted into
         // customers table. If its repeating client this query will fail as customer_name 
@@ -32,6 +39,10 @@
                         SET visits = " ."'$visits'"
                         ." WHERE customer_name = " ."'$name'";
             mysqli_query($conn, $query);
+        }
+
+        if(!mysqli_error($conn)){
+            header("Location: " .ROOT_URL ."views/appointment_created.php?id=" .$appointment_id);
         }
 
         mysqli_close($conn);

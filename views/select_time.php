@@ -22,16 +22,18 @@
 <html>
     <head>
         <title>Best barbershop in town</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
 
     <body>
         <h2>Select one of available times</h2>
 
         <form action="" method="post">
+            <div class="d-flex flex-column">
             <?php foreach($available_times as $available_time): ;?>
-                <button name="time" value="<?php echo $available_time; ?>"><?php echo $available_time; ?></button>
-                <br/>
+                <button class="btn btn-info" name="time" value="<?php echo $available_time; ?>"><?php echo $available_time; ?></button>
             <?php endforeach; ?>
+            </div>
         </form>
 
     </body>

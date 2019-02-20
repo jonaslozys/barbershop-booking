@@ -18,6 +18,7 @@
 <html>
     <head>
         <title>Best barbershop in town</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
 
     <body>
@@ -30,14 +31,15 @@
 
         <form method="post" action="">
             <label for="name">Your name and surname</label>
-            <input type="text" name="name" id="name">
+            <input class="form-control" type="text" name="name" id="name">
             <br> 
             <label for="email">Your email address</label>
-            <input type="text" name="email" id="email">
+            <input class="form-control" type="text" name="email" id="email">
             <br>
             <label for="phone">Your phone number</label>
-            <input type="text" name="phone" id="phone">
-            <button name="submit">SUBMIT</button>
+            <input class="form-control" type="text" name="phone" id="phone">
+            <br>
+            <button class="btn btn-success" name="submit">SUBMIT</button>
         </form>
     </body>
 </html>

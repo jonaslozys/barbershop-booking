@@ -7,10 +7,18 @@
 <html>
     <head>
         <title>Best barbershop in town</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
 
     <body>
-        <button><a href="<?php echo ROOT_URL; ?>views/select_barber.php">Book an appointment</a></button>
-        <button><a href="<?php echo ROOT_URL; ?>views/staff_login.php">Staff login</a></button>
+        <div class="text-center">
+            
+            <a class="btn btn-success" href="<?php echo ROOT_URL; ?>views/select_barber.php">Book an appointment</a>
+            
+            <a class="btn btn-success" href="<?php echo ROOT_URL; ?>views/staff_login.php">Staff login</a>
+         
+            
+        </div>
+
     </body>
 </html>

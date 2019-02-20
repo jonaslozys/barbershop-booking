@@ -18,18 +18,19 @@
 
     function quarterHourTimes() {
         $formatter = function ($time) {
-          return date("H:i", $time);
+        
+          return gmdate("H:i", gmdate($time));
         };
 
         // range (start of the workday, end of the workday, intervals) - all in seconds
-        $quarterHourSteps = range(18*1800, 38*1800, 900);
+        $quarterHourSteps = range(10*3600, 20*3600, 900);
         return array_map($formatter, $quarterHourSteps);
       }
 
     function getAvailableTimes($barber_id, $date, $conn) {
         $booked_times = getBookedTimes($barber_id, $date, $conn);
         $times = quarterHourTimes();
-
+        
         $available_times = array_diff($times, $booked_times);
         return $available_times;
     }
