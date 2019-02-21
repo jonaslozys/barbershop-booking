@@ -14,8 +14,13 @@
     $result = mysqli_query($conn, $query);
 
     $appointment = mysqli_fetch_assoc($result);
-    
-    echo "<table class='table'>
+
+    // if query returns no data, aka returns NULL
+    if($appointment === NULL) {
+        echo "No appointment with this ID found";
+    } else {
+        // return table with appointment data
+        echo "<table class='table'>
         <tr>
             <th>ID</th>
             <th>Your name</th>
@@ -24,16 +29,20 @@
             <th>Your visits</th>
         </tr>";
 
-    echo "<tr>";
-        echo "<td id='appointment_id'>" .$appointment["appointment_id"] ."</td>";
-        echo "<td>" .$appointment["customer_name"] ."</td>";
-        echo "<td>" .$appointment["date"] ."</td>";
-        echo "<td>" .$appointment["name"] ."</td>";
-        echo "<td>" .$appointment["visits"] ."</td>";
-    echo "</tr>
-        </table>";
-    echo "<a class = 'btn btn-danger' href='" .ROOT_URL ."views/my_appointment.php"
-            ."?id=" .$appointment["appointment_id"] ."&action=delete" ."'>Cancel appointment</a>";
+        echo "<tr>";
+            echo "<td id='appointment_id'>" .$appointment["appointment_id"] ."</td>";
+            echo "<td>" .$appointment["customer_name"] ."</td>";
+            echo "<td>" .$appointment["date"] ."</td>";
+            echo "<td>" .$appointment["name"] ."</td>";
+            echo "<td>" .$appointment["visits"] ."</td>";
+        echo "</tr>
+            </table>";
+        echo "<a class = 'btn btn-danger' href='" .ROOT_URL ."views/my_appointment.php"
+                ."?id=" .$appointment["appointment_id"] ."&action=delete" ."'>Cancel appointment</a>";
+
+    }
+    
+
 
     mysqli_close($conn);
 ?>
