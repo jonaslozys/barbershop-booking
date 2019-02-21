@@ -1,7 +1,9 @@
 <?php
     require("../config/config.php");
     require("../config/db_config.php");
-    require("../API/get_bookings.php");
+    require("../API/booking.php");
+    require("../API/barbers.php");
+    
 
     session_start();
     
@@ -10,7 +12,12 @@
         header("Location: " .ROOT_URL ."views/staff_login.php");
     }
     if(isset($_GET["staff_id"]) && isset($_GET["date"])){
-        $bookings = getBookings($_GET["staff_id"], $_GET["date"]);
+        $bookings = new Booking;
+        $bookings = $bookings->getBookings($_GET["staff_id"], $_GET["date"]);
+        //$bookings = getBookings($_GET["staff_id"], $_GET["date"]);
+        $barbers = new Barber('','','','');
+        $b = $barbers->getAllBarbers();
+        
     }
     if(isset($_POST["logout"])){
         echo "logout";
@@ -30,6 +37,9 @@
             <?php foreach($bookings as $booking): ;?>
                 <h3>Cutomer name: <b><?php echo $booking["customer_name"]; ?></b></h3>
                 <h3>Time: <b><?php echo date("H:i", strtotime($booking["date"])); ?></b></h3>
+                <?php if($booking["visits"] % 5 == 0){
+                    echo "<div class='alert alert-warning'>" .$booking["visits"] ."th visit, apply discount!</div>";
+                } ;?> 
                 <a class ="btn btn-success" href="<?php  echo (ROOT_URL ."views/appointment_details.php?id=" .$booking["appointment_id"]);?>">More</a>
             <?php endforeach ;?>
         </div>

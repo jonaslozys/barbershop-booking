@@ -16,8 +16,7 @@
         }
 
         public static function getAllBarbers(){
-            require("../config/config.php");
-            require("../config/db_config.php");
+            global $conn;
         
             $query = "SELECT * FROM barbers";
         
