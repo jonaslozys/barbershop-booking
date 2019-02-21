@@ -1,7 +1,7 @@
 <?php
 
-    class Barber {
 
+    class Barber {
         private $name = "";
         private $bio = "";
         private $username = "";
@@ -16,9 +16,8 @@
         }
 
         public static function getAllBarbers(){
-            require("../config/config.php");
-            require("../config/db_config.php");
-        
+            global $conn;
+            
             $query = "SELECT * FROM barbers";
         
             $results = mysqli_query($conn, $query);
@@ -38,6 +37,7 @@
         public function addNewBarber(){
             require("../config/config.php");
             require("../config/db_config.php");
+          
         
             $query = "INSERT INTO staff (name, is_barber, username, password) 
                         VALUES ('$this->name', '1', '$this->username', '$this->password')";

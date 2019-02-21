@@ -1,4 +1,6 @@
 <?php
+    require("../config/config.php");
+    require("../config/db_config.php");
     require("../API/barbers.php");
 
     $barbers = new Barber;

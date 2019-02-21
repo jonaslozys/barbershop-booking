@@ -2,6 +2,10 @@
     require("../config/config.php");
     require("../config/db_config.php");
     require("../API/get_bookings.php");
+    require("../API/barbers.php");
+
+    $barbers = new Barber("","","","");
+    $barbers = $barbers->getAllBarbers();
 
     session_start();
     
@@ -24,9 +28,16 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     </head>
     <body>
-        <?php require("../components/logged_in_header.php"); ?>
+        <?php require_once("../components/logged_in_header.php"); ?>
+        <input type="date" id="start" name="trip-start"
+       value=<?php echo date("Y-m-d"); ?>
+       min=<?php echo date("Y-m-d"); ?> >
+
         <div class = "container">
-            <h2>Schedule for <b>Schedule for <?php echo date("Y M d", strtotime($_GET["date"])); ?></b></h2>
+            <h2>Schedule for 
+                <b><?php echo date("Y M d", strtotime($_GET["date"])); ?></b>
+                for <b><?php echo $bookings["name"]; ?></b>
+            </h2>
             <?php foreach($bookings as $booking): ;?>
                 <h3>Cutomer name: <b><?php echo $booking["customer_name"]; ?></b></h3>
                 <h3>Time: <b><?php echo date("H:i", strtotime($booking["date"])); ?></b></h3>

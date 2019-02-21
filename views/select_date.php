@@ -3,6 +3,7 @@
 
     session_start();
     
+    $no_date_error = "";
 
     if(isset($_GET["barber_id"])){
         $barber_id = $_GET["barber_id"];
@@ -11,9 +12,14 @@
         echo "error";
     };
 
-    if(isset($_POST["submit"]) && !empty($_POST["date"])){
-        $_SESSION["date"] = $_POST["date"];
-        header("Location: " .ROOT_URL ."views/select_time.php");
+    if(isset($_POST["submit"])){
+        if(!empty($_POST["date"])){
+            $_SESSION["date"] = $_POST["date"];
+            header("Location: " .ROOT_URL ."views/select_time.php");
+        } else {
+            $no_date_error = "Please select a date";
+        }
+
     }
 
 ?>
@@ -38,6 +44,10 @@
             <form method = "post" action="">
                 <label>Date selected:</label>
                 <input class="form-control" id="selected-date" name="date"><br>
+                <div>
+                <small class="text-danger"><?php echo $no_date_error;?></small>
+                </div>
+                <br>
                 <button class="btn btn-success" name="submit">OK</button>
             </form>
         </div>
