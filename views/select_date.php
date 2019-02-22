@@ -3,12 +3,20 @@
     session_start();
     
     $no_date_error = "";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5936a581a53e8512de91ddbd653aa11024ea3072
     if(isset($_GET["barber_id"])){
         $barber_id = $_GET["barber_id"];
         $_SESSION["barber_id"] = $barber_id;
     } else {
         echo "error";
     };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5936a581a53e8512de91ddbd653aa11024ea3072
     if(isset($_POST["submit"])){
         if(!empty($_POST["date"])){
             $_SESSION["date"] = $_POST["date"];
@@ -16,6 +24,10 @@
         } else {
             $no_date_error = "Please select a date";
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5936a581a53e8512de91ddbd653aa11024ea3072
     }
 ?>
 
