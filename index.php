@@ -16,6 +16,8 @@
             <a class="btn btn-success" href="<?php echo ROOT_URL; ?>views/select_barber.php">Book an appointment</a>
             
             <a class="btn btn-success" href="<?php echo ROOT_URL; ?>views/staff_login.php">Staff login</a>
+
+            <a class="btn btn-success" href="<?php echo ROOT_URL; ?>views/my_appointment.php">My appointment</a>
          
             
         </div>
