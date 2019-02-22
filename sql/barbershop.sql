@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2019 at 03:22 PM
+-- Generation Time: Feb 22, 2019 at 02:25 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -39,7 +39,12 @@ CREATE TABLE `barbers` (
 --
 
 INSERT INTO `barbers` (`id`, `name`, `bio`) VALUES
-(4, 'Petras', 'Bla bla bla geriausias kirpejas greitai ir kokybiskai atlieka savo darba');
+(4, 'Petras', 'Bla bla bla geriausias kirpejas greitai ir kokybiskai atlieka savo darba'),
+(18, 'Jonas', 'blah blah blah cool guy'),
+(19, 'Kostas', 'best barber working with us for 10 years'),
+(20, 'andrius', 'blab blah blah'),
+(21, 'Antanas', 'bla bla blah veru cool'),
+(22, 'Antanas', 'bla bla blah veru cool');
 
 -- --------------------------------------------------------
 
@@ -53,14 +58,6 @@ CREATE TABLE `bookings` (
   `customer_name` varchar(255) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bookings`
---
-
-INSERT INTO `bookings` (`barber_id`, `appointment_id`, `customer_name`, `date`) VALUES
-(4, 23, 'Jonas Lozis', '2019-02-18 10:00:00'),
-(4, 24, 'Ponas Kostas', '2019-02-18 10:15:00');
 
 -- --------------------------------------------------------
 
@@ -80,8 +77,16 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_name`, `email`, `phone`, `visits`) VALUES
+('grehbkjrg', 'elnrrgj', 'ljwengrjkln', 6),
+('hwekjh', 'kwefjhbfejkwbh', '465+65+65', 2),
+('jonas jonas', 'jlozysjlozys@fmaskn.coeo', '+6564654654', 1),
+('Jonas Jonauskas', 'nvm@gmail.com', '86835654', 1),
 ('Jonas Lozis', 'bdksbfkasb', '86895465465', 1),
-('Ponas Kostas', 'kostas@kostas.ly', '8683565464', 1);
+('Klientas Klientauskas', 'klientas@mail.com', '+3706085425', 1),
+('Ponas Kostas', 'kostas@kostas.ly', '8683565464', 1),
+('Ponas Ponauskas', 'ponas@emailas.ru', '112', 1),
+('Vardauskas Pavardauskas', 'vardauskas@emial.com', '+3706089455', 3),
+('Vardys Pavardys', 'nononoono@gmail.com', '+84984948984', 5);
 
 -- --------------------------------------------------------
 
@@ -103,7 +108,15 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`staff_id`, `name`, `is_barber`, `username`, `password`) VALUES
 (3, 'Administratorius', 0, 'admin', 'admin'),
-(4, 'Petras', 1, 'petras', 'petras');
+(4, 'Petras', 1, 'petras', 'petras'),
+(5, 'Jonas', 1, 'jonas', 'jonas'),
+(16, 'Jonas', 1, 'jonas', 'jonas'),
+(17, 'Jonas', 1, 'jonas', 'jonas'),
+(18, 'Jonas', 1, 'jonas', 'jonas'),
+(19, 'Kostas', 1, 'kostas', 'kostas'),
+(20, 'andrius', 1, 'andrius', 'andrius'),
+(21, 'Antanas', 1, 'antanas', 'antanas'),
+(22, 'Antanas', 1, 'antanas', 'antanas');
 
 --
 -- Indexes for dumped tables
@@ -144,19 +157,19 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `barbers`
 --
 ALTER TABLE `barbers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
@@ -173,12 +186,6 @@ ALTER TABLE `barbers`
 --
 ALTER TABLE `bookings`
   ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`barber_id`) REFERENCES `barbers` (`id`);
-
---
--- Constraints for table `customers`
---
-ALTER TABLE `customers`
-  ADD CONSTRAINT `customers_ibfk_1` FOREIGN KEY (`customer_name`) REFERENCES `bookings` (`customer_name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
