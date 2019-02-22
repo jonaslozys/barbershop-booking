@@ -55,6 +55,18 @@
             mysqli_close($conn);
         }
 
+        public function getBarberById($id){
+            global $conn;
+
+            $query = "SELECT name FROM barbers WHERE id = '$id'";
+
+            if($result = mysqli_query_assoc($query)){
+                return $result;
+            } else {
+                return "barber not found";
+            }
+        }
+
     }
 
 ?>

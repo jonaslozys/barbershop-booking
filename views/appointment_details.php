@@ -32,9 +32,9 @@
             <h3>Customer name: <b><?php echo $appointmentDetails["customer_name"]; ?></b></h3>
             <h3>Customer's email: <b><?php echo $appointmentDetails["email"]; ?></b></h3>
             <h3>Customer's phone number: <b><?php echo $appointmentDetails["phone"]; ?></b></h3>
-            <h3>V</h3>
+            <h3>Number of visits: <b><?php echo $appointmentDetails["visits"] ;?></b></h3>
             <a class = "btn btn-danger" href="<?php echo ROOT_URL ."views/cancel_appointment.php?id=" .$appointmentDetails["appointment_id"];?>">Cancel appointment</a>
-            <h3>Number of visits:<?php echo "" ;?></h3>
+            
 
         </div>
     </body>
