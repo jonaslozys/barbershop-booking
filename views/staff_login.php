@@ -21,7 +21,7 @@
         } else $password = $_POST["password"];
         
 
-        //field not empty, perform validation
+        //no errors, perform validation
         if(empty($username_error) && empty($password_error)){
             login($username, $password);
         }

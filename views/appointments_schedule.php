@@ -10,8 +10,11 @@
     // Check if user is authorized to access this page, if not, redirect to login
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         header("Location: " .ROOT_URL ."views/staff_login.php");
+        
     }
     if(isset($_GET["staff_id"]) && isset($_GET["date"])){
+        $_SESSION["date"] = $_GET["date"];
+        $_SESSION["id"] = $_GET["staff_id"];
         $bookings = new Booking;
         $bookings = $bookings->getBookings($_GET["staff_id"], $_GET["date"]);
         //$bookings = getBookings($_GET["staff_id"], $_GET["date"]);

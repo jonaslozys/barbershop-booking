@@ -9,10 +9,11 @@
         header("Location: " .ROOT_URL ."views/staff_login.php");
     }
 
+
     if(isset($_POST["cancel"]) && isset($_GET["id"])){
         echo "canceling";
         deleteAppointment($_GET["id"]);
-        header("Location: " .ROOT_URL ."views/appointments_schedule.php");
+        header("Location: " .ROOT_URL ."views/appointments_schedule.php?staff_id=" .$_SESSION["id"] ."&date=" .$_SESSION["date"]);
     }
 ?>
 

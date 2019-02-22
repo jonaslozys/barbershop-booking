@@ -1,8 +1,6 @@
 <?php
     require("../API/barbers.php");
-
-
-
+    
     session_start();
 
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -16,6 +14,8 @@
             $barber = new Barber($_POST["name"], $_POST["about"], $_POST["username"], $_POST["password"]);
 
             $barber->addNewBarber();
+
+            header("Location: " .ROOT_URL ."views/appointments_schedule.php?staff_id=" .$_SESSION["id"] ."&date=" .$_SESSION["date"]);
         }
     }
 ?>
