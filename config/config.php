@@ -9,7 +9,7 @@
     // database credentials config
 
 
-    config for clearDB
+    // config for clearDB
     define("DB_HOST", "us-cdbr-iron-east-03.cleardb.net");
     define("DB_USERNAME", "b15f3c28207aa8");
     define("DB_PASSWORD", "4aebefa5");
