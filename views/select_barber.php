@@ -19,10 +19,8 @@
         <h1>Select a barber</h1>
             <?php foreach($barbers as $barber): ;?>
                 <div class="col align-self-center">
-                    <h3>Name</h3>
-                    <p><?php echo $barber["name"]; ?></p>
-                    <h3>Bio/about</h3>
-                    <p><?php echo $barber["bio"]; ?></p>
+                    <h3>Name: <b><?php echo $barber["name"]; ?></b> </h3>
+                    <h3>Bio/about: <b><?php echo $barber["bio"]; ?></b></h3>
                     <a class="btn btn-success" href="<?php echo ROOT_URL; ?>views/select_date.php?barber_id=<?php echo $barber["id"];?>">Book</a>
                     <br>
                     <br>

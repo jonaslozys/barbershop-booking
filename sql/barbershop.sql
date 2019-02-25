@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2019 at 02:25 PM
+-- Generation Time: Feb 25, 2019 at 12:09 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -41,10 +41,7 @@ CREATE TABLE `barbers` (
 INSERT INTO `barbers` (`id`, `name`, `bio`) VALUES
 (4, 'Petras', 'Bla bla bla geriausias kirpejas greitai ir kokybiskai atlieka savo darba'),
 (18, 'Jonas', 'blah blah blah cool guy'),
-(19, 'Kostas', 'best barber working with us for 10 years'),
-(20, 'andrius', 'blab blah blah'),
-(21, 'Antanas', 'bla bla blah veru cool'),
-(22, 'Antanas', 'bla bla blah veru cool');
+(19, 'Kostas', 'best barber working with us for 10 years');
 
 -- --------------------------------------------------------
 
@@ -58,6 +55,13 @@ CREATE TABLE `bookings` (
   `customer_name` varchar(255) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`barber_id`, `appointment_id`, `customer_name`, `date`) VALUES
+(18, 42, 'Vardauskas Pavardauskas', '2019-02-25 12:00:00');
 
 -- --------------------------------------------------------
 
@@ -85,7 +89,7 @@ INSERT INTO `customers` (`customer_name`, `email`, `phone`, `visits`) VALUES
 ('Klientas Klientauskas', 'klientas@mail.com', '+3706085425', 1),
 ('Ponas Kostas', 'kostas@kostas.ly', '8683565464', 1),
 ('Ponas Ponauskas', 'ponas@emailas.ru', '112', 1),
-('Vardauskas Pavardauskas', 'vardauskas@emial.com', '+3706089455', 3),
+('Vardauskas Pavardauskas', 'vardauskas@emial.com', '+3706089455', 4),
 ('Vardys Pavardys', 'nononoono@gmail.com', '+84984948984', 5);
 
 -- --------------------------------------------------------
@@ -163,7 +167,7 @@ ALTER TABLE `barbers`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `appointment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `staff`
